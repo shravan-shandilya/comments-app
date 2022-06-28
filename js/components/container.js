@@ -7,6 +7,7 @@ const COMPONENT = "Container";
 // <div class="container">
 //   <h2 class="title">Discussion</h2>
 //   <CommentInput />
+//   <div class="divider"></div>
 //   <CommentList />
 // </div>
 
@@ -31,6 +32,9 @@ function render(root, data) {
     },
     placeholder: "What are your thoughts?",
   });
+
+  const divider = createElement("hr", { class: "divider" });
+  container.appendChild(divider);
 
   CommentList.render(container, {
     comments: data.comments,

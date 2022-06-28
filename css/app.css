@@ -6,7 +6,6 @@
   box-sizing: border-box;
   margin: 0;
   width: 100%;
-  height: 100%;
   font-family: "Inter", sans-serif;
 }
 
@@ -23,12 +22,17 @@ body {
 
 .container {
   width: 100vw;
-  max-width: 70%;
   background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+@media all and (min-width: 600px) {
+  .container {
+    max-width: 70%;
+  }
 }
 
 .title {
@@ -82,11 +86,8 @@ input::placeholder {
 }
 
 .divider {
-  margin-left: 3rem;
-  margin-right: 3rem;
-  width: auto;
+  width: 100%;
   border: 0.5px solid var(--border);
-  height: 1px;
 }
 
 .comment {
@@ -143,4 +144,42 @@ input::placeholder {
   color: var(--text-secondary);
   font-size: 0.7rem;
   font-weight: 300;
+}
+
+.snackbar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.snackbar-none {
+  display: none;
+}
+
+.snackbar-success {
+  visibility: none;
+  text-align: center;
+  width: auto;
+  padding: 0.5rem;
+  background-color: lightseagreen;
+  color: white;
+  position: fixed;
+  z-index: 1;
+  bottom: 2rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+}
+
+.snackbar-failure {
+  visibility: none;
+  text-align: center;
+  width: auto;
+  padding: 0.5rem;
+  background-color: lightcoral;
+  color: white;
+  position: fixed;
+  z-index: 1;
+  bottom: 2rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
 }

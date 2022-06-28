@@ -1,5 +1,6 @@
 import createElement from "./element.js";
 import { postComment } from "../../api/api.js";
+import SnackBar from "./snackbar.js";
 const COMPONENT = "CommentInput";
 
 // Template:
@@ -32,7 +33,19 @@ async function render(root, data, rerender) {
 
   button.addEventListener("click", async () => {
     console.log("posting comment");
-    await postComment(data.author.id, input.value, -1);
+    try {
+      await postComment(data.author.id, input.value, -1);
+      SnackBar.render(root, {
+        success: true,
+        text: "Your comment has been added",
+      });
+      input.value = "";
+    } catch (err) {
+      SnackBar.render(root, {
+        success: false,
+        text: "Failed to add your comment",
+      });
+    }
   });
 
   commentInput.appendChild(profileImage);
