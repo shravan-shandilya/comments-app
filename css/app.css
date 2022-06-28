@@ -1,0 +1,136 @@
+@import url("https://rsms.me/inter/inter.css");
+@import url("./utils.css");
+@import url("./colors.css");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: lightgrey;
+  color: white;
+}
+
+.container {
+  width: 100vw;
+  max-width: 70%;
+  /* min-height: 100vh; */
+  background-color: white;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--text-primary);
+  height: auto;
+  padding-left: 3rem;
+  padding-top: 3rem;
+}
+
+.comment-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: auto;
+  padding: 2rem 3rem 2rem 3rem;
+}
+
+input::placeholder {
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  margin-left: 0.1rem;
+  padding-left: 0.5rem;
+}
+
+.comment-input-profile-picture {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+}
+
+.comment-input-input {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  height: 2rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.comment-input-button {
+  width: auto;
+  background-color: var(--primary);
+  color: white;
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.7rem;
+}
+
+.divider {
+  margin-left: 3rem;
+  margin-right: 3rem;
+  width: auto;
+  border: 0.5px solid var(--border);
+  height: 1px;
+}
+
+.comment {
+  display: flex;
+  padding: 1.5rem 3rem 1.5rem 3rem;
+  height: auto;
+}
+
+.comment-body {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+}
+
+.comment-name {
+  color: var(--text-primary);
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.comment-time {
+  color: var(--text-secondary);
+  font-size: 0.6rem;
+  font-weight: 400;
+}
+
+.comment-body-text {
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  font-weight: 400;
+  padding-top: 0.2rem;
+}
+.comment-profile-picture {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+}
+
+.comment-actions {
+  padding-top: 1rem;
+  display: flex;
+}
+
+.comment-actions-upvote {
+  border: none;
+  background-color: white;
+  color: var(--button-text-color);
+  font-size: 0.7rem;
+  width: auto;
+}
+
+.comment-actions-reply {
+}
