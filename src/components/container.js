@@ -75,7 +75,7 @@ class Container extends Component {
         display_picture: `https://res.cloudinary.com/liveweb/image/upload/ghost/${randomUser}.jpg`,
       },
     });
-    this.commentList.redraw({ comments: (await getComments()).reverse() });
+    this.commentList.redraw({ comments: await getComments() });
     this.snackBar.redraw({
       show: true,
       success: true,

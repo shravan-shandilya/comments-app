@@ -11,7 +11,7 @@ function computeTimeAgo(dateString) {
   if (diffMinutes < 1) return "few seconds ago";
   else if (diffMinutes > 1 && diffMinutes < 60)
     return `${Math.floor(diffMinutes)} minutes ago`;
-  else if (diffHours > 1 && diffMinutes < 24)
+  else if (diffHours > 1 && diffHours < 24)
     return `${Math.floor(diffHours)} hours ago`;
   else if (diffDays > 1 && diffDays < 7)
     return `${Math.floor(diffDays)} days ago`;
