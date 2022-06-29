@@ -1,6 +1,14 @@
 @import url("https://rsms.me/inter/inter.css");
-@import url("./utils.css");
-@import url("./colors.css");
+
+:root {
+  --primary: #7e34f6;
+  --background: #fff;
+  --text-primary: #21293c;
+  --text-secondary: #4b587c;
+  --text-tertiary: #8a8f9c;
+  --border: #e5e5e5;
+  --button-text-color: #4b587c;
+}
 
 * {
   box-sizing: border-box;
@@ -22,6 +30,7 @@ body {
 
 .container {
   width: 100vw;
+  max-width: 70%;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -29,9 +38,9 @@ body {
   align-items: center;
 }
 
-@media all and (min-width: 600px) {
+@media all and (max-width: 500px) {
   .container {
-    max-width: 70%;
+    max-width: 100%;
   }
 }
 
@@ -53,10 +62,8 @@ body {
 }
 
 input::placeholder {
-  color: var(--text-secondary);
+  color: var(--text-tertiary);
   font-size: 0.7rem;
-  margin-left: 0.1rem;
-  padding-left: 0.5rem;
 }
 
 .comment-input-profile-picture {
@@ -71,6 +78,7 @@ input::placeholder {
   height: 2rem;
   border: 1px solid var(--border);
   border-radius: 4px;
+  text-indent: 0.5rem;
 }
 
 .comment-input-button {
@@ -85,14 +93,21 @@ input::placeholder {
   font-size: 0.7rem;
 }
 
+.divider-container {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
 .divider {
   width: 100%;
-  border: 0.5px solid var(--border);
+  background-color: var(--border);
+  height: 1px;
+  border-width: 0px;
 }
 
 .comment {
   display: flex;
-  padding: 1.5rem 3rem 1.5rem 3rem;
+  padding: 1rem 3rem 1rem 3rem;
   height: auto;
 }
 
@@ -106,10 +121,11 @@ input::placeholder {
   color: var(--text-primary);
   font-size: 0.7rem;
   font-weight: 600;
+  line-height: 1rem;
 }
 
 .comment-time {
-  color: var(--text-secondary);
+  color: var(--text-tertiary);
   font-size: 0.6rem;
   font-weight: 400;
 }
@@ -119,6 +135,7 @@ input::placeholder {
   font-size: 0.7rem;
   font-weight: 400;
   padding-top: 0.2rem;
+  line-height: 1rem;
 }
 .comment-profile-picture {
   width: 2rem;
@@ -132,11 +149,14 @@ input::placeholder {
 }
 
 .comment-actions-button {
+  align-self: flex-start;
   border: none;
   background-color: white;
   color: var(--button-text-color);
-  font-size: 0.7rem;
+  font-size: 0.6rem;
+  font-weight: 500;
   width: auto;
+  line-height: 0.8rem;
 }
 
 .no-comments-yet {
@@ -144,20 +164,10 @@ input::placeholder {
   color: var(--text-secondary);
   font-size: 0.7rem;
   font-weight: 300;
-}
-
-.snackbar-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.snackbar-none {
-  display: none;
+  padding: 1rem;
 }
 
 .snackbar-success {
-  visibility: none;
   text-align: center;
   width: auto;
   padding: 0.5rem;
@@ -171,7 +181,6 @@ input::placeholder {
 }
 
 .snackbar-failure {
-  visibility: none;
   text-align: center;
   width: auto;
   padding: 0.5rem;
@@ -182,4 +191,14 @@ input::placeholder {
   bottom: 2rem;
   border-radius: 4px;
   font-size: 0.7rem;
+}
+
+.snackbar-hidden {
+  display: none;
+}
+
+.snackbar-shown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
