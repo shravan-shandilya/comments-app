@@ -20,6 +20,12 @@ function FetchRequest(url, requestOptions) {
     });
 }
 
+async function getComment(comment_id) {
+  return (
+    await FetchRequest(`${baseURL}/comments/${comment_id}`, { method: "GET" })
+  )["comment"];
+}
+
 async function getComments() {
   return (await FetchRequest(`${baseURL}/comments`, { method: "GET" }))[
     "comments"
@@ -33,4 +39,4 @@ function postComment(user_id, content, parent) {
   });
 }
 
-export { getComments, postComment };
+export { getComment, getComments, postComment };
