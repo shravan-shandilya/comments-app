@@ -74,6 +74,10 @@ input::placeholder {
   text-indent: 0.5rem;
 }
 
+.comment-input-form {
+  display: flex;
+}
+
 .comment-input-button {
   width: auto;
   background-color: var(--primary);
