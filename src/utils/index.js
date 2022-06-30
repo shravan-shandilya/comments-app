@@ -7,7 +7,7 @@ function computeTimeAgo(dateString) {
   let diffDays = diffHours / 24;
   let diffWeeks = diffDays / 7;
   let diffMonths = diffDays / 30;
-  let diffYears = diffMonths / 12;
+
   if (diffMinutes < 1) return "few seconds ago";
   else if (diffMinutes > 1 && diffMinutes < 60)
     return `${Math.floor(diffMinutes)} minutes ago`;
