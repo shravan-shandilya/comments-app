@@ -3,6 +3,7 @@
   --background: #fff;
   --text-primary: #21293c;
   --text-secondary: #4b587c;
+  --text-tertiary: #8a8f9c;
   --border: #e5e5e5;
   --button-text-color: #4b587c;
 }
@@ -54,10 +55,8 @@
 }
 
 input::placeholder {
-  color: var(--text-secondary);
+  color: var(--text-tertiary);
   font-size: 0.7rem;
-  margin-left: 0.1rem;
-  padding-left: 0.5rem;
 }
 
 .comment-input-profile-picture {
@@ -72,6 +71,7 @@ input::placeholder {
   height: 2rem;
   border: 1px solid var(--border);
   border-radius: 4px;
+  text-indent: 0.5rem;
 }
 
 .comment-input-button {
@@ -125,7 +125,7 @@ input::placeholder {
 }
 
 .comment-time {
-  color: var(--text-secondary);
+  color: var(--text-tertiary);
   font-size: 0.6rem;
   font-weight: 400;
 }

@@ -17,6 +17,7 @@ function CommentInput({ parent, onUpdate }) {
       <img
         className="comment-input-profile-picture"
         src={author.display_picture}
+        alt="author's profile"
       ></img>
       <input
         className="comment-input-input"

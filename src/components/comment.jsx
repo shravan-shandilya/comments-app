@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import CommentInput from "./commentInput";
 import CommentList from "./commentList";
 import { getComment } from "../api";
@@ -14,6 +14,7 @@ function Comment({ comment }) {
       <img
         className="comment-profile-picture"
         src={comment.author.display_picture}
+        alt="author's profile"
       ></img>
       <div className="comment-body">
         <div className="comment-name">

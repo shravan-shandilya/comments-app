@@ -10,14 +10,13 @@ function App() {
   let authorId = Math.floor(Math.random() * 10 + 1);
 
   const [comments, setComments] = useState([]);
-  const [author, setAuthor] = useState({
+  const [author] = useState({
     id: authorId,
     display_picture: `https://res.cloudinary.com/liveweb/image/upload/ghost/${authorId}.jpg`,
   });
 
   useEffect(() => {
     (async () => {
-      console.log("fetched comments");
       setComments(await getComments());
     })();
   }, []);
@@ -31,7 +30,6 @@ function App() {
             <CommentInput
               parent={-1}
               onUpdate={async () => {
-                console.log("fetched comments");
                 setComments(await getComments());
               }}
             />
