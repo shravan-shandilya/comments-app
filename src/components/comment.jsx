@@ -1,13 +1,29 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import CommentInput from "./commentInput";
 import CommentList from "./commentList";
 import { getComment } from "../api";
 import { computeTimeAgo } from "../utils";
 import { decode } from "he";
+import { AuthorContext } from "../App";
+
+import { postVote } from "../api";
 
 function Comment({ comment }) {
+  const author = useContext(AuthorContext);
   const [showReply, setShowReply] = useState(false);
+  const [upvotes, setUpvotes] = useState(comment.upvotes);
+  const [downvotes, setDownvotes] = useState(comment.downvotes);
   const [replies, setReplies] = useState(comment.replies);
+
+  const vote = async (type) => {
+    await postVote(author.id, comment.id, type);
+  };
+
+  const updateVotes = async () => {
+    let c = await getComment(comment.id);
+    setUpvotes(c.upvotes);
+    setDownvotes(c.downvotes);
+  };
 
   return (
     <div className="comment">
@@ -25,8 +41,26 @@ function Comment({ comment }) {
           </span>
         </div>
         <div className="comment-body-text">{decode(comment.content)}</div>
-        <div className="comment-actions">
-          <button className="comment-actions-button">▲ Upvote</button>
+        <div className="comment-votes-actions">
+          {/* <div className="comment-votes"></div> */}
+          <button
+            className="comment-actions-button"
+            onClick={async () => {
+              await vote("upvote");
+              await updateVotes();
+            }}
+          >
+            ▲ {upvotes}
+          </button>
+          <button
+            className="comment-actions-button"
+            onClick={async () => {
+              await vote("downvote");
+              await updateVotes();
+            }}
+          >
+            ▼ {downvotes}
+          </button>
           {comment.parent === -1 && (
             <button
               className="comment-actions-button"

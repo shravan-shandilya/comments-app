@@ -39,4 +39,11 @@ function postComment(user_id, content, parent) {
   });
 }
 
-export { getComment, getComments, postComment };
+function postVote(user_id, comment_id, type) {
+  return FetchRequest(`${baseURL}/votes`, {
+    method: "POST",
+    body: JSON.stringify({ user_id, comment_id, type }),
+  });
+}
+
+export { getComment, getComments, postComment, postVote };
