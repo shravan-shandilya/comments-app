@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 const baseURL = "https://api.thoughtscoop.com";
 const baseHeaders = new Headers({
   "Content-Type": "application/json",
@@ -16,6 +18,7 @@ function FetchRequest(url, requestOptions) {
     })
     .catch((error) => {
       console.error(error);
+      toast.error("Something went wrong");
       return Promise.reject(error);
     });
 }

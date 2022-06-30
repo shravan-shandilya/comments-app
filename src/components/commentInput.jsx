@@ -1,6 +1,7 @@
 import { postComment } from "../api";
 import { useState, useContext } from "react";
 import { AuthorContext } from "../App";
+import { toast } from "react-toastify";
 
 function CommentInput({ parent, onUpdate }) {
   const author = useContext(AuthorContext);
@@ -9,7 +10,8 @@ function CommentInput({ parent, onUpdate }) {
   async function handleCommentButtonClick(event) {
     await postComment(author.id, comment, parent);
     setComment("");
-    onUpdate();
+    if (onUpdate) onUpdate();
+    toast.success("Your comment was added");
   }
 
   return (

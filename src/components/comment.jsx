@@ -1,28 +1,18 @@
 import { useState, useContext } from "react";
 import CommentInput from "./commentInput";
 import CommentList from "./commentList";
-import { getComment } from "../api";
 import { computeTimeAgo } from "../utils";
 import { decode } from "he";
 import { AuthorContext } from "../App";
-
 import { postVote } from "../api";
+import { toast } from "react-toastify";
 
-function Comment({ comment }) {
+function Comment({ comment, replies, upvotes, downvotes }) {
   const author = useContext(AuthorContext);
   const [showReply, setShowReply] = useState(false);
-  const [upvotes, setUpvotes] = useState(comment.upvotes);
-  const [downvotes, setDownvotes] = useState(comment.downvotes);
-  const [replies, setReplies] = useState(comment.replies);
 
   const vote = async (type) => {
     await postVote(author.id, comment.id, type);
-  };
-
-  const updateVotes = async () => {
-    let c = await getComment(comment.id);
-    setUpvotes(c.upvotes);
-    setDownvotes(c.downvotes);
   };
 
   return (
@@ -42,12 +32,11 @@ function Comment({ comment }) {
         </div>
         <div className="comment-body-text">{decode(comment.content)}</div>
         <div className="comment-votes-actions">
-          {/* <div className="comment-votes"></div> */}
           <button
             className="comment-actions-button"
             onClick={async () => {
               await vote("upvote");
-              await updateVotes();
+              toast.success("You upvoted the comment");
             }}
           >
             ▲ {upvotes}
@@ -56,7 +45,7 @@ function Comment({ comment }) {
             className="comment-actions-button"
             onClick={async () => {
               await vote("downvote");
-              await updateVotes();
+              toast.success("You downvoted the comment");
             }}
           >
             ▼ {downvotes}
@@ -75,8 +64,6 @@ function Comment({ comment }) {
             <CommentInput
               parent={comment.id}
               onUpdate={async () => {
-                let latestComment = await getComment(comment.id);
-                setReplies(latestComment.replies);
                 setShowReply(false);
               }}
             />

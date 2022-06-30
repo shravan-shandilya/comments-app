@@ -168,38 +168,8 @@ input::placeholder {
   padding: 1rem;
 }
 
-.snackbar-success {
-  text-align: center;
-  width: auto;
-  padding: 0.5rem;
-  background-color: lightseagreen;
-  color: white;
-  position: fixed;
-  z-index: 1;
-  bottom: 2rem;
-  border-radius: 4px;
-  font-size: 0.7rem;
-}
-
-.snackbar-failure {
-  text-align: center;
-  width: auto;
-  padding: 0.5rem;
-  background-color: lightcoral;
-  color: white;
-  position: fixed;
-  z-index: 1;
-  bottom: 2rem;
-  border-radius: 4px;
-  font-size: 0.7rem;
-}
-
-.snackbar-hidden {
-  display: none;
-}
-
-.snackbar-shown {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.toast {
+  font-size: 0.8rem;
+  width: 20vw !important;
+  padding: 0.2rem !important;
 }
